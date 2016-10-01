@@ -38,6 +38,14 @@
         android:title="@string/send_text"
         android:orderInCategory="2"
         app:showAsAction="never"/>
+    <item android:id="@+id/switch_audio_tv"
+          android:title="@string/switch_audio_tv"
+          android:orderInCategory="2"
+          app:showAsAction="never"/>
+    <item android:id="@+id/switch_audio_bt"
+          android:title="@string/switch_audio_bt"
+          android:orderInCategory="2"
+          app:showAsAction="never"/>
     <item android:title="@string/library_actions"
         android:orderInCategory="3"
         app:showAsAction="never">

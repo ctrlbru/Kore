@@ -70,6 +70,8 @@ android {
         // okio generates a lint error which should be ignored. Demote it to warning
         // See https://github.com/square/okio/issues/58
         warning 'InvalidPackage'
+
+        warning 'ResourceType'
     }
 
 //    allprojects {

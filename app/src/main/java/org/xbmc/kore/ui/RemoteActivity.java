@@ -39,6 +39,9 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.fasterxml.jackson.databind.node.JsonNodeFactory;
+import com.fasterxml.jackson.databind.node.ObjectNode;
+
 import org.xbmc.kore.R;
 import org.xbmc.kore.Settings;
 import org.xbmc.kore.host.HostConnectionObserver;
@@ -283,6 +286,14 @@ public class RemoteActivity extends BaseActivity
                 SendTextDialogFragment dialog =
                         SendTextDialogFragment.newInstance(getString(R.string.send_text));
                 dialog.show(getSupportFragmentManager(), null);
+                return true;
+            case R.id.switch_audio_bt:
+                org.xbmc.kore.jsonrpc.method.Settings.SetSettingValue actionSetSettingValueBt = new org.xbmc.kore.jsonrpc.method.Settings.SetSettingValue("audiooutput.audiodevice", "PULSE:Default");
+                actionSetSettingValueBt.execute(hostManager.getConnection(), null, null);
+                return true;
+            case R.id.switch_audio_tv:
+                org.xbmc.kore.jsonrpc.method.Settings.SetSettingValue actionSetSettingValueTv = new org.xbmc.kore.jsonrpc.method.Settings.SetSettingValue("audiooutput.audiodevice", "ALSA:hdmi:CARD=HDMI,DEV=0");
+                actionSetSettingValueTv.execute(hostManager.getConnection(), null, null);
                 return true;
             case R.id.toggle_fullscreen:
                 GUI.SetFullscreen actionSetFullscreen = new GUI.SetFullscreen();

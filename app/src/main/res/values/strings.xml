@@ -55,6 +55,9 @@
     <string name="text_to_send">Text to send</string>
     <string name="finish_after_send">Finish after send</string>
 
+    <string name="switch_audio_tv">Switch audio to TV</string>
+    <string name="switch_audio_bt">Switch audio to Bluetooth</string>
+
     <string name="library_actions">Library maintenance</string>
     <string name="clean_video_library">Clean video library</string>
     <string name="clean_audio_library">Clean audio library</string>
