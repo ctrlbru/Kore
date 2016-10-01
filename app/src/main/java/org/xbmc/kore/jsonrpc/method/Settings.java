@@ -20,6 +20,7 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import org.xbmc.kore.jsonrpc.ApiException;
 import org.xbmc.kore.jsonrpc.ApiMethod;
+import org.xbmc.kore.utils.JsonUtils;
 
 /**
  * All JSON RPC methods in Settings.*
@@ -375,6 +376,29 @@ public class Settings {
         @Override
         public JsonNode resultFromJson(ObjectNode jsonObject) throws ApiException {
             return jsonObject.get(RESULT_NODE).get("value");
+        }
+    }
+
+    public static final class SetSettingValue extends ApiMethod<Boolean> {
+        public final static String METHOD_NAME = "Settings.SetSettingValue";
+
+        /**
+         * Changes the value of a setting (string type)
+         */
+        public SetSettingValue(String setting, String value) {
+            super();
+            addParameterToRequest("setting", setting);
+            addParameterToRequest("value", value);
+        }
+
+        @Override
+        public String getMethodName() {
+            return METHOD_NAME;
+        }
+
+        @Override
+        public Boolean resultFromJson(ObjectNode jsonObject) throws ApiException {
+            return JsonUtils.booleanFromJsonNode(jsonObject, RESULT_NODE);
         }
     }
 
