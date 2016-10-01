@@ -3,6 +3,7 @@
 
 # Generated files
 /build
+/app/*.apk
 
 # IntelliJ
 *.iml
