@@ -437,10 +437,10 @@ public class AlbumDetailsFragment extends AbstractDetailsFragment
                     R.attr.iconExpand,
                     R.attr.iconCollapse
             });
-            final int iconCollapseResId = styledAttributes.getResourceId(0,
-                                                                         R.drawable.ic_expand_less_white_24dp);
-            final int iconExpandResId = styledAttributes.getResourceId(1,
-                                                                       R.drawable.ic_expand_more_white_24dp);
+            final int iconCollapseResId =
+                    styledAttributes.getResourceId(styledAttributes.getIndex(0), R.drawable.ic_expand_less_white_24dp);
+            final int iconExpandResId =
+                    styledAttributes.getResourceId(styledAttributes.getIndex(1), R.drawable.ic_expand_more_white_24dp);
             styledAttributes.recycle();
 
             mediaDescriptionContainer.setOnClickListener(new View.OnClickListener() {
@@ -710,7 +710,7 @@ public class AlbumDetailsFragment extends AbstractDetailsFragment
     /**
      * Album details query parameters.
      */
-    private interface AlbumDetailsQuery {
+    public interface AlbumDetailsQuery {
         String[] PROJECTION = {
                 BaseColumns._ID,
                 MediaContract.Albums.TITLE,
@@ -739,7 +739,7 @@ public class AlbumDetailsFragment extends AbstractDetailsFragment
     /**
      * Movie cast list query parameters.
      */
-    private interface AlbumSongsListQuery {
+    public interface AlbumSongsListQuery {
         String[] PROJECTION = {
                 BaseColumns._ID,
                 MediaContract.Songs.TITLE,
