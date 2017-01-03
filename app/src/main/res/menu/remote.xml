@@ -38,14 +38,37 @@
         android:title="@string/send_text"
         android:orderInCategory="2"
         app:showAsAction="never"/>
-    <item android:id="@+id/switch_audio_tv"
-          android:title="@string/switch_audio_tv"
+    <item android:id="@+id/switch_audio"
+          android:title="@string/switch_audio"
           android:orderInCategory="2"
-          app:showAsAction="never"/>
-    <item android:id="@+id/switch_audio_bt"
-          android:title="@string/switch_audio_bt"
-          android:orderInCategory="2"
-          app:showAsAction="never"/>
+          app:showAsAction="never">
+        <menu>
+            <item android:id="@+id/switch_audio_tv"
+                  android:title="@string/switch_audio_tv"
+                  android:orderInCategory="2"
+                  app:showAsAction="never"/>
+            <item android:id="@+id/switch_audio_bt_dario_nere"
+                  android:title="@string/switch_audio_bt_dario_nere"
+                  android:orderInCategory="2"
+                  app:showAsAction="never"/>
+            <item android:id="@+id/switch_audio_bt_dario_bianche"
+                  android:title="@string/switch_audio_bt_dario_bianche"
+                  android:orderInCategory="2"
+                  app:showAsAction="never"/>
+            <item android:id="@+id/switch_audio_bt_mauro"
+                  android:title="@string/switch_audio_bt_mauro"
+                  android:orderInCategory="2"
+                  app:showAsAction="never"/>
+            <item android:id="@+id/switch_audio_bt_vera"
+                  android:title="@string/switch_audio_bt_vera"
+                  android:orderInCategory="2"
+                  app:showAsAction="never"/>
+            <item android:id="@+id/switch_audio_bt_papa"
+                  android:title="@string/switch_audio_bt_papa"
+                  android:orderInCategory="2"
+                  app:showAsAction="never"/>
+        </menu>
+    </item>
     <item android:title="@string/library_actions"
         android:orderInCategory="3"
         app:showAsAction="never">

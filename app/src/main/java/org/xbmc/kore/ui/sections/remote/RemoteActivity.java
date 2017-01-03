@@ -69,6 +69,7 @@ import org.xbmc.kore.utils.UIUtils;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -279,14 +280,18 @@ public class RemoteActivity extends BaseActivity
                         SendTextDialogFragment.newInstance(getString(R.string.send_text));
                 dialog.show(getSupportFragmentManager(), null);
                 return true;
-            case R.id.switch_audio_bt:
-                org.xbmc.kore.jsonrpc.method.Settings.SetSettingValue actionSetSettingValueBt = new org.xbmc.kore.jsonrpc.method.Settings.SetSettingValue("audiooutput.audiodevice", "PULSE:Default");
-                actionSetSettingValueBt.execute(hostManager.getConnection(), null, null);
-                return true;
+            case R.id.switch_audio_bt_dario_nere:
+                return switch_bt("00:18:6B:66:24:1E");
+            case R.id.switch_audio_bt_dario_bianche:
+                return switch_bt("00:18:6B:32:51:64");
+            case R.id.switch_audio_bt_mauro:
+                return switch_bt("FC:F1:52:91:A7:F6");
+            case R.id.switch_audio_bt_vera:
+                return switch_bt("1C:52:16:59:61:90");
+            case R.id.switch_audio_bt_papa:
+                return switch_bt("B8:AD:3E:56:8C:1C");
             case R.id.switch_audio_tv:
-                org.xbmc.kore.jsonrpc.method.Settings.SetSettingValue actionSetSettingValueTv = new org.xbmc.kore.jsonrpc.method.Settings.SetSettingValue("audiooutput.audiodevice", "ALSA:hdmi:CARD=HDMI,DEV=0");
-                actionSetSettingValueTv.execute(hostManager.getConnection(), null, null);
-                return true;
+                return switch_tv();
             case R.id.toggle_fullscreen:
                 GUI.SetFullscreen actionSetFullscreen = new GUI.SetFullscreen();
 //                Input.ExecuteAction actionSetFullscreen = new Input.ExecuteAction(Input.ExecuteAction.TOGGLEFULLSCREEN);
@@ -313,6 +318,27 @@ public class RemoteActivity extends BaseActivity
 		}
 
 		return super.onOptionsItemSelected(item);
+    }
+
+    private boolean switch_bt(String address)
+    {
+        HashMap<String, Object> params = new HashMap<>();
+        params.put("address", address);
+
+        org.xbmc.kore.jsonrpc.method.Addons.ExecuteAddon action1 = new org.xbmc.kore.jsonrpc.method.Addons.ExecuteAddon("script.btconnect", params);
+        action1.execute(hostManager.getConnection(), null, null);
+
+        org.xbmc.kore.jsonrpc.method.Settings.SetSettingValue action2 = new org.xbmc.kore.jsonrpc.method.Settings.SetSettingValue("audiooutput.audiodevice", "PULSE:Default");
+        action2.execute(hostManager.getConnection(), null, null);
+
+        return true;
+    }
+
+    private boolean switch_tv()
+    {
+        org.xbmc.kore.jsonrpc.method.Settings.SetSettingValue action = new org.xbmc.kore.jsonrpc.method.Settings.SetSettingValue("audiooutput.audiodevice", "ALSA:hdmi:CARD=HDMI,DEV=0");
+        action.execute(hostManager.getConnection(), null, null);
+        return true;
     }
 
     /**

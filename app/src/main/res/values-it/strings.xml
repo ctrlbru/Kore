@@ -54,9 +54,6 @@
     <string name="text_to_send">Testo da inviare</string>
     <string name="finish_after_send">Chiudi dopo l\'invio</string>
 
-    <string name="switch_audio_tv">Audio TV</string>
-    <string name="switch_audio_bt">Audio Bluetooth</string>
-
     <string name="library_actions">Gestione libreria</string>
     <string name="clean_video_library">Pulisci libreria video</string>
     <string name="clean_audio_library">Pulisci libreria audio</string>

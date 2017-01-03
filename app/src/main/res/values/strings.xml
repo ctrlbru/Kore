@@ -55,8 +55,13 @@
     <string name="text_to_send">Text to send</string>
     <string name="finish_after_send">Finish after send</string>
 
-    <string name="switch_audio_tv">Switch audio to TV</string>
-    <string name="switch_audio_bt">Switch audio to Bluetooth</string>
+    <string name="switch_audio">Cambia audio</string>
+    <string name="switch_audio_tv">TV</string>
+    <string name="switch_audio_bt_dario_nere">Dario (nere)</string>
+    <string name="switch_audio_bt_dario_bianche">Dario (bianche)</string>
+    <string name="switch_audio_bt_mauro">Mauro</string>
+    <string name="switch_audio_bt_vera">Vera</string>
+    <string name="switch_audio_bt_papa">Papà</string>
 
     <string name="library_actions">Library maintenance</string>
     <string name="clean_video_library">Clean video library</string>

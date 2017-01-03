@@ -23,6 +23,7 @@ import org.xbmc.kore.jsonrpc.ApiMethod;
 import org.xbmc.kore.jsonrpc.type.AddonType;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -47,6 +48,12 @@ public class Addons {
         public ExecuteAddon(String addonId) {
             super();
             addParameterToRequest("addonid", addonId);
+        }
+
+        public ExecuteAddon(String addonId, HashMap<String, Object> params) {
+            super();
+            addParameterToRequest("addonid", addonId);
+            addParameterToRequest("params", params);
         }
 
         @Override

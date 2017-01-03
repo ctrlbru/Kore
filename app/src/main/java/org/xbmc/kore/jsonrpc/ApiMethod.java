@@ -27,6 +27,7 @@ import org.xbmc.kore.jsonrpc.type.ApiParameter;
 import org.xbmc.kore.utils.LogUtils;
 
 import java.io.IOException;
+import java.util.HashMap;
 
 /**
  * Abstract class base of all the JSON RPC API calls
@@ -113,7 +114,16 @@ public abstract class ApiMethod<T> {
         getParametersNode().put(parameter, value);
     }
 
-    /**
+	/**
+	 * Adds a parameter to the request
+	 * @param parameter Parameter name
+	 * @param value Value to add
+	 */
+	protected void addParameterToRequest(String parameter, HashMap<String, Object> value) {
+		getParametersNode().put(parameter, objectMapper.convertValue(value, JsonNode.class));
+	}
+
+	/**
      * Adds a parameter to the request
      * @param parameter Parameter name
      * @param value Value to add
